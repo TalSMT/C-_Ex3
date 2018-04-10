@@ -20,6 +20,7 @@ class Member{
         int numFollowers(){ return numOfFollowers; }
         int numFollowing(){ return numOfFollowing; }
         static int count(){ return numOfMembers; }
+        // int id;
         
         void follow(Member& member);
         void unfollow(Member& member);
@@ -30,8 +31,8 @@ class Member{
         void tempUnfollow(Member* member);
         void unFollowAll();
         void deleteAllFollowers();
-        void printFollowers();
-        void printFollowing();
+        // void printFollowers();
+        // void printFollowing();
         Member();
         ~Member();
 
@@ -109,19 +110,19 @@ void Member::follow(Member& member){
         }
     }
     
-    void Member::printFollowers(){
-        for (int i = 0; i < followers.size(); i++) { 
-            cout << followers[i]->id << ' ';
-        }
-        cout << endl;
-    }
+    // void Member::printFollowers(){
+    //     for (int i = 0; i < followers.size(); i++) { 
+    //         cout << followers[i]->id << ' ';
+    //     }
+    //     cout << endl;
+    // }
     
-    void Member::printFollowing(){
-        for (int i = 0; i < following.size(); i++) { 
-            cout << following[i]->id << ' ';
-        }
-        cout << endl;
-    }
+    // void Member::printFollowing(){
+    //     for (int i = 0; i < following.size(); i++) { 
+    //         cout << following[i]->id << ' ';
+    //     }
+    //     cout << endl;
+    // }
     
     Member::Member(){ 
         numOfFollowers = 0;
