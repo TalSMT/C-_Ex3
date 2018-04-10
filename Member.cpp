@@ -44,15 +44,19 @@ void Member::follow(Member& member){
     }
     
     bool Member::isFollowing(Member* member){
+        bool ans = false;
         for (vector<Member*>::iterator it = following.begin(); it != following.end(); ++it){
-            if(compare(*it, member)) return true;
+            if(compare(*it, member)) ans = true;
         }
+        return ans;
     }
     
     bool Member::isFollowedBy(Member* member){
+        bool ans = false;
         for (vector<Member*>::iterator it = followers.begin(); it != followers.end(); ++it){
-            if(compare(*it, member)) return true;
+            if(compare(*it, member)) ans = true;
         }
+        return ans;
     }
     
     void Member::tempUnfollow(Member* member){
