@@ -17,7 +17,6 @@ class Member{
         
         
     public:
-        int id;
         int numFollowers(){ return numOfFollowers; }
         int numFollowing(){ return numOfFollowing; }
         static int count(){ return numOfMembers; }
@@ -107,10 +106,7 @@ void Member::follow(Member& member){
             // cout << followers.size() << endl;
             // printFollowers();
             followers[i]->unfollow2(this);
-            
         }
-        
-        
     }
     
     void Member::printFollowers(){
