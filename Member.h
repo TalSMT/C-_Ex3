@@ -15,7 +15,6 @@ class Member{
         vector <Member*> following;
         vector <Member*> followers;
         
-        
     public:
         // int id;
         // void printFollowers();
@@ -31,7 +30,7 @@ class Member{
         bool compare(Member* a, Member* b);
         bool isFollowing(Member* member);
         bool isFollowedBy(Member* member);
-        void tempUnfollow(Member* member);
+        void tempUnfollow(Member* member, vector<Member*> vect);
         void unFollowAll();
         void deleteAllFollowers();
         Member();
