@@ -11,7 +11,6 @@ int Member::numFollowing(){
 }
 
 
-
 void Member::follow(Member& member){
         if(!isFollowing(&member)&&(this != &member)){
             numOfFollowing++; 
@@ -19,21 +18,24 @@ void Member::follow(Member& member){
             following.push_back(&member);
             member.followers.push_back(this);
         }
-    }
+}
     
-    void Member::unfollow(Member& member){
-        if(isFollowing(&member)&&(this != &member)){
+void Member::unfollow(Member& member){
+    if(isFollowing(&member)&&(this != &member)){
             numOfFollowing--; 
-            (member).numOfFollowers--;
-            tempUnfollow(&member);
-        }
+            member.numOfFollowers--;
+            tempUnfollow(&member, following);
+            tempUnfollow(this, (&member)->followers);
+            
     }
+}
     
     void Member::unfollow2(Member* member){
         if(isFollowing(member)&&(this != member)){
             numOfFollowing--; 
             member->numOfFollowers--;
-            tempUnfollow(member);
+            tempUnfollow(member, following);
+            tempUnfollow(this, (member)->followers);
         }
     }
     
@@ -59,14 +61,15 @@ void Member::follow(Member& member){
         return ans;
     }
     
-    void Member::tempUnfollow(Member* member){
-        for(vector<Member*>::iterator it = following.begin(); it != following.end(); ++it){
+    void Member::tempUnfollow(Member* member, vector<Member*> vect){
+        for(vector<Member*>::iterator it = vect.begin(); it != vect.end(); ++it){
     		if(compare(*it, member)) {
-    			it = following.erase(it);
+    			it = vect.erase(it);
     			return;
     		} 
         }
     }
+    
     
     void Member::unFollowAll(){
         int N = following.size(); // number of members we are following
@@ -111,3 +114,5 @@ void Member::follow(Member& member){
         deleteAllFollowers();
         numOfMembers--;
     }
+    
+    
